@@ -3,13 +3,13 @@ import cl from "./Pagination.module.css";
 
 const Pagination = ({ postPerPage, totalPost, paginate, currentPage }) => {
   const pageNumbers = [];
-  console.log(postPerPage, totalPost);
+  // console.log(postPerPage, totalPost);
 
   // Calculate total page numbers for rendering
   for (let i = 1; i <= Math.ceil(totalPost / postPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log("pageNumbers", pageNumbers);
+  // console.log("pageNumbers", pageNumbers);
   return (
     <div className="page-container">
       <nav>

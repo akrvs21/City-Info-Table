@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Button() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <button>Sort</button>;
 }
 
-export default Button
+export default Button;
