@@ -104,7 +104,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/cities")
+      .get("https://city-list21.herokuapp.com/api/cities")
       .then(function (response) {
         // handle success
         setCityData(response.data);
