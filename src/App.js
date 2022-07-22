@@ -21,6 +21,7 @@ function App() {
   };
 
   const sortTable = (type, condition, value) => {
+    setCurrentPage(1);
     if (type === "name") {
       switch (condition) {
         case "equal":
