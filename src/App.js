@@ -1,8 +1,8 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Pagination from "./UI/Pagination/Pagination";
 import Table from "./UI/Table/Table";
-import { city_data } from "./data";
 import Filter from "./Components/Filter";
 
 function App() {
@@ -11,9 +11,11 @@ function App() {
 
   const indexOfLastItem = currentPage * postPerPage;
   const indexOfFirstItem = indexOfLastItem - postPerPage;
-  // const currentPageData = city_data.slice(indexOfFirstItem, indexOfLastItem); // render only 5 items on each page
-  const [sortedData, setSortedData] = useState(city_data);
 
+  const [cityData, setCityData] = useState([]);
+  const [sortedData, setSortedData] = useState(cityData);
+
+  // re-render everytime the currentPage have been updated
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber); // Updating current page
   };
@@ -23,24 +25,25 @@ function App() {
       switch (condition) {
         case "equal":
           console.log("equal");
-          setSortedData(city_data.filter((item) => item.name === value));
+          console.log(sortedData);
+          setSortedData(cityData.filter((item) => item.city_name === value));
+          console.log(sortedData);
           break;
         case "contain":
           console.log("contain");
           setSortedData(
-            city_data.filter((item) =>
-              item.name.toLowerCase().includes(value.toLowerCase())
+            cityData.filter((item) =>
+              item.city_name.toLowerCase().includes(value.toLowerCase())
             )
           );
           break;
         case "bigger":
           console.log("bigger");
-          setSortedData(city_data.filter((item) => item.name > value));
+          setSortedData(cityData.filter((item) => item.city_name > value));
           break;
         case "smaller":
           console.log("smaller");
-          console.log(city_data[2].name < value);
-          setSortedData(city_data.filter((item) => item.name < value));
+          setSortedData(cityData.filter((item) => item.city_name < value));
           break;
         default:
           console.log("no such condition");
@@ -50,28 +53,23 @@ function App() {
       switch (condition) {
         case "equal":
           console.log("equal");
-          setSortedData(
-            city_data.filter((item) => item.population == value)
-            // city_data.sort((a, b) =>
-            //   a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-            // )
-          );
+          setSortedData(cityData.filter((item) => item.population == value));
           break;
         case "contain":
           console.log("contain");
           setSortedData(
-            city_data.filter((item) =>
+            cityData.filter((item) =>
               item.population.toString().includes(value)
             )
           );
           break;
         case "bigger":
           console.log("bigger");
-          setSortedData(city_data.filter((item) => item.population > +value));
+          setSortedData(cityData.filter((item) => item.population > +value));
           break;
         case "smaller":
           console.log("smaller");
-          setSortedData(city_data.filter((item) => item.population < +value));
+          setSortedData(cityData.filter((item) => item.population < +value));
           break;
         default:
           console.log("no such condition");
@@ -81,28 +79,21 @@ function App() {
       switch (condition) {
         case "equal":
           console.log("equal");
-          console.log(typeof value);
-          console.log(city_data[0]);
-          setSortedData(
-            city_data.filter((item) => item.distance == value)
-            // city_data.sort((a, b) =>
-            //   a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-            // )
-          );
+          setSortedData(cityData.filter((item) => item.distance == value));
           break;
         case "contain":
           console.log("contain");
           setSortedData(
-            city_data.filter((item) => item.distance.toString().includes(value))
+            cityData.filter((item) => item.distance.toString().includes(value))
           );
           break;
         case "bigger":
           console.log("bigger");
-          setSortedData(city_data.filter((item) => item.distance > +value));
+          setSortedData(cityData.filter((item) => item.distance > +value));
           break;
         case "smaller":
           console.log("smaller");
-          setSortedData(city_data.filter((item) => item.distance < +value));
+          setSortedData(cityData.filter((item) => item.distance < +value));
           break;
         default:
           console.log("no such condition");
@@ -111,8 +102,26 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/cities")
+      .then(function (response) {
+        // handle success
+        setCityData(response.data);
+        setSortedData(response.data);
+
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }, []);
+
   return (
-    // re-render everytime the currentPage have been updated
     <div className="App">
       <h1>List of major Russian cities</h1>
       <Filter sortTable={sortTable} />

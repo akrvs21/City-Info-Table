@@ -132,3 +132,4 @@ export const city_data = [
     distance: 2400,
   },
 ];
+// INSERT INTO cities (founding_date, city_name, population, distance) VALUES (1147, 'Moscow', 17125000, 2400), (1703, 'Saint Petersburg', 5351935, 1000), (1893, 'Novosibirsk',1602915,4500),(1005, 'Kazan',1243500, 630), (1917, 'Ufa',1115560, 2100),(1604, 'Tomsk',572740, 1700),(1663, 'Penza',523726,800),(1779, 'Kursk',449063, 200),(1723, 'Perm', 1048005, 550), (1590, 'Saratov', 845300, 410),(1860, 'Vladivostok',606589,3500), (1735, 'Orenburg', 564443, 770), (1663, 'Penza', 523726, 150), (1147, 'moscow',17125000, 2400), (1590, 'saratov',845300,410),(1893, 'Novosibirsk',1602915,4500),(1893, 'Novosibirsk',1602915,4500),(1147, 'moscow',17125000, 2400),(1147, 'moscow', 17125000, 2400),(1147,'moscow',17125000, 2400),(1147, 'moscow',17125000,2400),(1147, 'moscow', 17125000, 2400);

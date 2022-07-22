@@ -16,7 +16,7 @@ function Table({ currentPageData }) {
         {currentPageData.map((user, i) => (
           <tr key={i}>
             <td>{user.founding_date}</td>
-            <td>{user.name}</td>
+            <td>{user.city_name}</td>
             <td>{user.population}</td>
             <td>{user.distance}</td>
           </tr>
