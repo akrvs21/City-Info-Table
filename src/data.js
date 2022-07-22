@@ -76,5 +76,59 @@ export const city_data = [
     name: "Penza",
     population: 523726,
     distance: 150,
-  }
+  },
+  {
+    founding_date: 1147,
+    name: "moscow",
+    population: 17125000,
+    distance: 2400,
+  },
+  {
+    founding_date: 1590,
+    name: "saratov",
+    population: 845300,
+    distance: 410,
+  },
+  {
+    founding_date: 1893,
+    name: "Novosibirsk",
+    population: 1602915,
+    distance: 4500,
+  },
+  {
+    founding_date: 1893,
+    name: "Novosibirsk",
+    population: 1602915,
+    distance: 4500,
+  },
+  {
+    founding_date: 1147,
+    name: "moscow",
+    population: 17125000,
+    distance: 2400,
+  },
+  {
+    founding_date: 1147,
+    name: "moscow",
+    population: 17125000,
+    distance: 2400,
+  },
+  {
+    founding_date: 1147,
+    name: "moscow",
+    population: 17125000,
+    distance: 2400,
+  },
+  {
+    founding_date: 1147,
+    name: "moscow",
+    population: 17125000,
+    distance: 2400,
+  },
+  {
+    founding_date: 1147,
+    name: "moscow",
+    population: 17125000,
+    distance: 2400,
+  },
 ];
