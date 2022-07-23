@@ -4,6 +4,7 @@ import axios from "axios";
 import Pagination from "./UI/Pagination/Pagination";
 import Table from "./UI/Table/Table";
 import Filter from "./Components/Filter";
+import MyLoader from "./UI/Loader/MyLoader";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,6 +15,8 @@ function App() {
 
   const [cityData, setCityData] = useState([]);
   const [sortedData, setSortedData] = useState(cityData);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   // re-render everytime the currentPage have been updated
   const paginate = (pageNumber) => {
@@ -110,7 +113,7 @@ function App() {
         // handle success
         setCityData(response.data);
         setSortedData(response.data);
-
+        setIsLoading(false);
         console.log(response.data);
       })
       .catch(function (error) {
@@ -126,9 +129,14 @@ function App() {
     <div className="App">
       <h1>List of major Russian cities</h1>
       <Filter sortTable={sortTable} />
-      <Table
-        currentPageData={sortedData.slice(indexOfFirstItem, indexOfLastItem)}
-      />
+      {isLoading ? (
+        <MyLoader />
+      ) : (
+        <Table
+          currentPageData={sortedData.slice(indexOfFirstItem, indexOfLastItem)}
+        />
+      )}
+
       <Pagination
         postPerPage={postPerPage}
         totalPost={sortedData.length}
