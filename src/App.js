@@ -10,13 +10,14 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(5);
 
+  // calculate indeces to slice sorted array for pagination
   const indexOfLastItem = currentPage * postPerPage;
   const indexOfFirstItem = indexOfLastItem - postPerPage;
 
   const [cityData, setCityData] = useState([]);
   const [sortedData, setSortedData] = useState(cityData);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true); // the state to control loader
 
   // re-render everytime the currentPage have been updated
   const paginate = (pageNumber) => {
@@ -29,9 +30,7 @@ function App() {
       switch (condition) {
         case "equal":
           console.log("equal");
-          console.log(sortedData);
           setSortedData(cityData.filter((item) => item.city_name === value));
-          console.log(sortedData);
           break;
         case "contain":
           console.log("contain");
