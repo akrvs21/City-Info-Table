@@ -2,7 +2,7 @@
 .pagination {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    /* padding: 20px; */
   }
   
   .pageItem {
@@ -27,8 +27,8 @@
     border-radius: 5px;
     font-size: 22px;
     font-family: "Anton", sans-serif;
-    color: #0b196d;
-    background-color: #86fc96;
+    color: #6329ba;
+    background-color: #58d5f5;
   }
   
   @media only screen and (max-width: 600px) {

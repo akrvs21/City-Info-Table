@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Pagination from "./UI/Pagination/Pagination";
@@ -127,7 +127,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>List of major Russian cities</h1>
+      <h1>Список крупных городов России</h1>
       <Filter sortTable={sortTable} />
       {isLoading ? (
         <MyLoader />

@@ -1,28 +1,30 @@
 import React from "react";
-import "./Table.module.css";
+import cl from "./Table.module.css";
 
 function Table({ currentPageData }) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Дата</th>
-          <th>Название</th>
-          <th>Количество</th>
-          <th>Расстояние</th>
-        </tr>
-      </thead>
-      <tbody>
-        {currentPageData.map((user, i) => (
-          <tr key={i}>
-            <td>{user.founding_date}</td>
-            <td>{user.city_name}</td>
-            <td>{user.population}</td>
-            <td>{user.distance}</td>
+    <div className={cl.container}>
+      <table className={cl.table}>
+        <thead>
+          <tr className={cl.tableHeader}>
+            <th className={cl.headerItem}>Дата</th>
+            <th className={cl.headerItem}>Название</th>
+            <th className={cl.headerItem}>Количество</th>
+            <th className={cl.headerItem}>Расстояние</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {currentPageData.map((user, i) => (
+            <tr className={cl.tableRow} key={i}>
+              <td className={cl.tableData}>{user.founding_date}</td>
+              <td className={cl.tableData}>{user.city_name}</td>
+              <td className={cl.tableData}>{user.population}</td>
+              <td className={cl.tableData}>{user.distance}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
