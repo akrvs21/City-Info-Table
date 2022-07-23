@@ -8,10 +8,10 @@ Simple table with various filters to sort.
 `npm install`  
 `npm start`  
   
- Информация о приложении:  
- Front-end: React  
- Back-end: Node.js + PostgreSQL  
- Cloud platform : Heroku
+ #### Информация о приложении:  
+ Front-end: **React**  
+ Back-end: **Node.js + PostgreSQL**  
+ Cloud platform : **Heroku**
   
 
   
