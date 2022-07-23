@@ -1,5 +1,19 @@
 # City-Info-Table
-Simple table with various filters to sort.
+Simple table with various filters to sort.  
+
+Как запустить приложение?  
+1. Клонировать репозиторий:  
+`git clone https://github.com/akrvs21/City-Info-Table.git`  
+2. Установить все пакеты и запустить приложение:  
+`npm install`  
+`npm start`  
+  
+ Информация о приложении:  
+ Front-end: React  
+ Back-end: Node.js + PostgreSQL  
+ Cloud platform : Heroku
+  
+
   
 Таблица в формате Single Page Application.
 
