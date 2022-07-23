@@ -1,7 +1,7 @@
 # City-Info-Table
 Simple table with various filters to sort.  
 
-Как запустить приложение?  
+### Как запустить приложение?  
 1. Клонировать репозиторий:  
 `git clone https://github.com/akrvs21/City-Info-Table.git`  
 2. Установить все пакеты и запустить приложение:  
